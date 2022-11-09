@@ -3,11 +3,12 @@ from django.db import models
 class MenuItem(models.Model):
     title = models.CharField(max_length=100)
     description = models.CharField(max_length=100)
-    category_id = models.ForeignKey('Category', on_delete=models.PROTECT)
-    cuisine_id = models.ForeignKey('Cuisine', on_delete=models.PROTECT)
+    price = models.FloatField(default=None)
+    #category_id = models.ForeignKey('Category', on_delete=models.PROTECT)
+    #cuisine_id = models.ForeignKey('Cuisine', on_delete=models.PROTECT)
 
     def __str__(self):
-        return self.title
+        return self.title + ": " + str(self.description) + " ($" + str(self.price) + ")"
 
 class Category(models.Model):
     label = models.CharField(max_length=100)

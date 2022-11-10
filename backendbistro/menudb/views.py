@@ -10,7 +10,5 @@ def index(request):
 
 def get_menu(request):
     menu = list(MenuItem.objects.values('title', 'description', 'price', 'category_id_id__label', 'cuisine_id_id__label'))
-    return JsonResponse({'Menu': menu})
-
-
+    return JsonResponse(menu, safe=False)
 

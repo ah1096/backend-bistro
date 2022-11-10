@@ -1,8 +1,10 @@
-from django.urls import path
-
+from django.urls import path, include
 from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('<varchar:title>/', views.detail, name='detail')
+    path('show_menu/<int:id>/', views.show_menu, name='show_menu'),
+    
+
+    
 ]

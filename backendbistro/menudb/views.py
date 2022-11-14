@@ -7,7 +7,7 @@ from django.http import JsonResponse
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from rest_framework import permissions
-from backendbistro.menudb.serializers import UserSerializer, GroupSerializer
+from menudb.serializers import UserSerializer, GroupSerializer
 
 #VIEWS = request handler, NOT necessarily visible to user
 

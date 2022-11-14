@@ -12,11 +12,6 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
         model = Group
         fields = ['url', 'name']
 
-class MenuItemSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = MenuItem
-        fields = ['title', 'description', 'price']
-
 class CuisineSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Cuisine
@@ -26,3 +21,10 @@ class CategorySerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Category
         fields = ['label']
+
+class MenuItemSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        category_id_id = CategorySerializer()
+        cuisine_id_id = CuisineSerializer()
+        model = MenuItem
+        fields = ['title', 'description', 'price', 'category_id_id', 'cuisine_id_id']

@@ -44,19 +44,19 @@ class MenuViewSet(viewsets.ModelViewSet):
     serializer_class = MenuItemSerializer
     permission_classes = [permissions.IsAuthenticated]
 
-class CuisineViewSet(viewsets.ModelViewSet):
-    """ 
-    API endpoint that allows cuisines to be viewed or edited.
-    """
-    queryset = Cuisine.objects.all()
-    serializer_class = CuisineSerializer
-    permission_classes = [permissions.IsAuthenticated]
+# class CuisineViewSet(viewsets.ModelViewSet):
+#     """ 
+#     API endpoint that allows cuisines to be viewed or edited.
+#     """
+#     queryset = Cuisine.objects.all()
+#     serializer_class = CuisineSerializer
+#     permission_classes = [permissions.IsAuthenticated]
 
-class CategoryViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows for categories to be viewed or edited.
-    """
-    queryset = Category.objects.all()
-    serializer_class = CategorySerializer
-    permission_classes = [permissions.IsAuthenticated]
+# class CategoryViewSet(viewsets.ModelViewSet):
+#     """
+#     API endpoint that allows for categories to be viewed or edited.
+#     """
+#     queryset = Category.objects.all()
+#     serializer_class = CategorySerializer
+#     permission_classes = [permissions.IsAuthenticated]
 

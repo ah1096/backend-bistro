@@ -7,7 +7,7 @@ from django.http import JsonResponse
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from rest_framework import permissions
-from menudb.serializers import UserSerializer, GroupSerializer, MenuItemSerializer
+from menudb.serializers import UserSerializer, GroupSerializer, MenuItemSerializer, CuisineSerializer, CategorySerializer
 
 #VIEWS = request handler, NOT necessarily visible to user
 
@@ -42,5 +42,21 @@ class MenuViewSet(viewsets.ModelViewSet):
     """
     queryset = MenuItem.objects.all()
     serializer_class = MenuItemSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+class CuisineViewSet(viewsets.ModelViewSet):
+    """ 
+    API endpoint that allows cuisines to be viewed or edited.
+    """
+    queryset = Cuisine.objects.all()
+    serializer_class = CuisineSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+class CategoryViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows for categories to be viewed or edited.
+    """
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
     permission_classes = [permissions.IsAuthenticated]
 

@@ -12,19 +12,21 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
         model = Group
         fields = ['url', 'name']
 
-class CuisineSerializer(serializers.HyperlinkedModelSerializer):
+class CuisineSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cuisine
-        fields = ['label']
+        fields = "__all__"
 
-class CategorySerializer(serializers.HyperlinkedModelSerializer):
+class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = ['label']
+        fields = "__all__"
 
 class MenuItemSerializer(serializers.HyperlinkedModelSerializer):
+
+    category_id = CategorySerializer()
+    cuisine_id = CuisineSerializer()
+    
     class Meta:
-        category_id_id = CategorySerializer()
-        cuisine_id_id = CuisineSerializer()
         model = MenuItem
-        fields = ['title', 'description', 'price', 'category_id_id', 'cuisine_id_id']
+        fields = ['title', 'description', 'price', 'category_id', 'cuisine_id']
